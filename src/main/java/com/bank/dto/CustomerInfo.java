@@ -14,6 +14,8 @@ public class CustomerInfo {
 
     private BranchInfo branch;
 
+    private AddressInfo address;
+
     private Set<AccountInfo> accounts;
 
     public int getId() {
@@ -54,5 +56,13 @@ public class CustomerInfo {
 
     public void setAccounts(Set<AccountInfo> accounts) {
         this.accounts = accounts;
+    }
+
+    public AddressInfo getAddress() {
+        return address;
+    }
+
+    public void setAddress(AddressInfo address) {
+        this.address = address;
     }
 }

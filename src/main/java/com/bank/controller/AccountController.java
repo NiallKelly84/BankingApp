@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Set;
@@ -22,8 +23,9 @@ public class AccountController {
     private AccountService accountService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<Set<AccountInfo>> getAllAccounts() {
-        Set<AccountInfo> accounts = accountService.getAllAccounts();
+    public ResponseEntity<Set<AccountInfo>> getAccounts(@RequestParam(value = "firstName", required = false) String firstName,
+                                                        @RequestParam(value = "surName", required = false)  String surName) {
+        Set<AccountInfo> accounts = accountService.getAccounts(firstName, surName);
         return new ResponseEntity<>(accounts, HttpStatus.OK);
     }
 }

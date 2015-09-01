@@ -1,6 +1,7 @@
 package com.bank.repository;
 
 import com.bank.entity.Account;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,4 +14,10 @@ import java.util.List;
 public interface AccountRepository extends CrudRepository<Account, Long> {
 
     List<Account> findAll();
+
+    @Query("select a from Account a where a.customer.firstName = ? and a.customer.surName = ?")
+    List<Account> findAccountByName(String firstName, String Surname);
+
+    @Query("select a from Account a where a.customer.surName = ?")
+    List<Account> findBySurname(String Surname);
 }

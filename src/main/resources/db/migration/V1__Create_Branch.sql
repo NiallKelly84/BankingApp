@@ -38,7 +38,7 @@ INSERT INTO `Branch` (`branch_id`, `branch_Name`) VALUES
 INSERT INTO `Customer` (`customer_id`, `first_Name`, `surname`, `house_number`, `street_name`, `city`, `country`, `eir_code`, `branch_id`) VALUES
   (1, 'Niall', 'Kelly', '32', 'The Avenue', 'Clane', 'Ireland', '123KE', 2),
   (2, 'Aileen', 'Kane', '32', 'The Avenue', 'Clane', 'Ireland', '123KE', 2),
-  (3, 'Joe', 'Schmidt', '4', 'Lansdowne Road', 'Dublin', 'Ireland', '8574DUB', 3),
+  (3, 'Alan', 'Kelly', '4', 'Lansdowne Road', 'Dublin', 'Ireland', '8574DUB', 3),
   (4, 'Martin', 'O Neill', '16', 'Aviva Stadium', 'Dublin', 'Ireland', '4547DUB', 3),
   (5, 'Paul', 'Byrne', '14', 'Kernanstown', 'Carlow', 'Ireland', '123CW', 1);
 

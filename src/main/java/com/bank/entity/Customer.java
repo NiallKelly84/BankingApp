@@ -44,6 +44,14 @@ public class Customer implements Serializable {
             cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Account> accounts;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getFirstName() {
         return firstName;
     }

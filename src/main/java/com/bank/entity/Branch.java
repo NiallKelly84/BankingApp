@@ -33,6 +33,14 @@ public class Branch implements Serializable {
             cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Customer> customers;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getBranchName() {
         return branchName;
     }
