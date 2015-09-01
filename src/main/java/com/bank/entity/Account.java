@@ -36,6 +36,14 @@ public class Account implements Serializable {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getType() {
         return type;
     }
