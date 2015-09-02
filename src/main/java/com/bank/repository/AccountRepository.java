@@ -16,8 +16,8 @@ public interface AccountRepository extends CrudRepository<Account, Long> {
     List<Account> findAll();
 
     @Query("select a from Account a where a.customer.firstName = ? and a.customer.surName = ?")
-    List<Account> findAccountByName(String firstName, String Surname);
+    List<Account> findAccountByName(String firstName, String surname);
 
     @Query("select a from Account a where a.customer.surName = ?")
-    List<Account> findBySurname(String Surname);
+    List<Account> findBySurname(String surname);
 }

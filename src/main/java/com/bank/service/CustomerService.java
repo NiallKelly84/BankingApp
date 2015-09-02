@@ -34,6 +34,8 @@ public class CustomerService {
         customerInfo.setFirstName(customer.getFirstName());
         customerInfo.setSurName(customer.getSurName());
         customerInfo.setAddress(addressService.mapToDto(customer.getAddress()));
+        customer.getAccounts().stream()
+                              .forEach(a -> customerInfo.addAccountId(a.getId()));
         return Optional.of(customerInfo);
     }
 }

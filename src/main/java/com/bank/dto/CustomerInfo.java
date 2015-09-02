@@ -1,5 +1,6 @@
 package com.bank.dto;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -16,7 +17,9 @@ public class CustomerInfo {
 
     private AddressInfo address;
 
-    private Set<AccountInfo> accounts;
+    private Set<AccountInfo> accounts =  new HashSet<>();;
+
+    private Set<Integer> accountIds =  new HashSet<>();;
 
     public int getId() {
         return id;
@@ -58,11 +61,27 @@ public class CustomerInfo {
         this.accounts = accounts;
     }
 
+    public void addAccount(AccountInfo account) {
+        this.accounts.add(account);
+    }
+
     public AddressInfo getAddress() {
         return address;
     }
 
     public void setAddress(AddressInfo address) {
         this.address = address;
+    }
+
+    public void addAccountId(int accountId) {
+        this.accountIds.add(accountId);
+    }
+
+    public Set<Integer> getAccountIds() {
+        return accountIds;
+    }
+
+    public void setAccountIds(Set<Integer> accountIds) {
+        this.accountIds = accountIds;
     }
 }

@@ -29,7 +29,7 @@ public class BranchService {
         return brancheInfoList;
     }
 
-    private BranchInfo mapToDto(Branch branch){
+    private BranchInfo mapToDto(Branch branch) {
         BranchInfo dto = new BranchInfo();
         dto.setId(branch.getId());
         dto.setBranchName(branch.getBranchName());
