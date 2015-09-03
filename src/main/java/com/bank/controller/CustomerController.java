@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * Created by eniakel on 01/09/2015.
  */
@@ -19,6 +21,12 @@ public class CustomerController {
 
     @Autowired
     private CustomerService customerService;
+
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<List<CustomerInfo>> getAllCustomers() {
+        List<CustomerInfo> customer = customerService.getAllCustomers();
+        return new ResponseEntity<>(customer, HttpStatus.OK);
+    }
 
     @RequestMapping(value = "/{customerId}", method = RequestMethod.GET)
     public ResponseEntity<CustomerInfo> getCustomerById(@PathVariable("customerId") int customerId) {

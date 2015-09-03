@@ -1,5 +1,6 @@
 package controller;
 
+import com.bank.db.FlywayTest;
 import com.bank.dto.AccountInfo;
 import com.bank.infrastructure.Application;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -17,9 +18,10 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
 import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -29,6 +31,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {Application.class})
 @WebAppConfiguration
+@FlywayTest(locations = {"db/migration"}, invokeClean = true)
 public class AccountControllerITest {
 
     private MockMvc mockMvc;
@@ -42,7 +45,6 @@ public class AccountControllerITest {
     public void setUp() throws Exception {
         om = new ObjectMapper();
         mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
-        //mockMvc = MockMvcBuilders.standaloneSetup(new AccountController()).build();
     }
 
     @Test
@@ -54,9 +56,10 @@ public class AccountControllerITest {
                 .andExpect(status().isOk())
                 .andReturn();
 
-        List<AccountInfo> accountList = readAccounts(mvcResult);
-        Collections.sort(accountList, (a1, a2) ->
-                Integer.toString(a1.getId()).compareTo(Integer.toString(a2.getId())));
+        List<AccountInfo> accountList = readAccounts(mvcResult)
+                                            .stream()
+                                            .sorted(Comparator.comparing(AccountInfo::getId))
+                                            .collect(toList());
 
         // assertions
         assertEquals(accountList.size(), 11);

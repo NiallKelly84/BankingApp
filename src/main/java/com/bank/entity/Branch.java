@@ -24,7 +24,7 @@ public class Branch implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "branch_id", unique = true, nullable = false)
-    private int id;
+    private long id;
 
     @Column(name = "branch_Name")
     private String branchName;
@@ -33,11 +33,11 @@ public class Branch implements Serializable {
             cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Customer> customers;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

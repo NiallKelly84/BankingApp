@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS `Branch` (
-  `branch_id` INTEGER(10) NOT NULL AUTO_INCREMENT,
+  `branch_id` BIGINT(10) NOT NULL AUTO_INCREMENT,
   `branch_Name` VARCHAR(25) NOT NULL,
   PRIMARY KEY (`branch_id`)
 );
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `Customer` (
   `city` VARCHAR(25) NOT NULL,
   `country` VARCHAR(25) NOT NULL,
   `eir_code` VARCHAR(25) NOT NULL,
-  `branch_id` INTEGER(10)   NOT NULL,
+  `branch_id` BIGINT(10)   NOT NULL,
   PRIMARY KEY (`customer_id`),
   KEY `FK_CUST_BRANCH` (`branch_id`),
   CONSTRAINT `FK_CUST_BRANCH` FOREIGN KEY (`branch_id`) REFERENCES `Branch` (`branch_id`)

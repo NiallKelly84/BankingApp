@@ -6,6 +6,8 @@ import com.bank.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -23,6 +25,16 @@ public class CustomerService {
     public Optional<CustomerInfo> getCustomerById(int id) {
         Customer customer = customerRepository.findCustomerById(id);
         return mapToDto(customer);
+    }
+
+    public List<CustomerInfo> getAllCustomers() {
+        List<Customer> customers = customerRepository.findAll();
+        List<CustomerInfo> customerList = new ArrayList();
+
+        for (Customer customer : customers) {
+            customerList.add((mapToDto(customer)).get());
+        }
+        return customerList;
     }
 
     public Optional<CustomerInfo> mapToDto(Customer customer) {

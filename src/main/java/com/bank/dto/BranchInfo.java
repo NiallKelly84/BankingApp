@@ -6,17 +6,17 @@ import java.util.Set;
  * Created by eniakel on 31/08/2015.
  */
 public class BranchInfo {
-    private int id;
+    private long id;
 
     private String branchName;
 
     private Set<CustomerInfo> customers;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
