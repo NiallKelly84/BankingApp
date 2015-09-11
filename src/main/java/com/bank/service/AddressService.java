@@ -18,4 +18,14 @@ public class AddressService {
         dto.setEirCode(address.getEirCode());
         return dto;
     }
+
+    public Address mapToEntity(AddressInfo addressInfo) {
+        Address entity = new Address();
+        entity.setHouseNumber(addressInfo.getHouseNumber());
+        entity.setStreetName(addressInfo.getStreetName());
+        entity.setCity(addressInfo.getCity());
+        entity.setCountry(addressInfo.getCountry());
+        entity.setEirCode(addressInfo.getEirCode());
+        return entity;
+    }
 }

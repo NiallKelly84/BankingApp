@@ -7,7 +7,7 @@ import java.util.Set;
  * Created by eniakel on 31/08/2015.
  */
 public class CustomerInfo {
-    private int id;
+    private long id;
 
     private String firstName;
 
@@ -21,11 +21,13 @@ public class CustomerInfo {
 
     private Set<Integer> accountIds =  new HashSet<>();;
 
-    public int getId() {
+    private long branchId;
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -83,5 +85,13 @@ public class CustomerInfo {
 
     public void setAccountIds(Set<Integer> accountIds) {
         this.accountIds = accountIds;
+    }
+
+    public Long getBranchId() {
+        return branchId;
+    }
+
+    public void setBranchId(Long branchId) {
+        this.branchId = branchId;
     }
 }

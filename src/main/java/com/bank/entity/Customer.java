@@ -25,7 +25,7 @@ public class Customer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "customer_id", unique = true, nullable = false)
-    private int id;
+    private long id;
 
     @Column(name = "first_Name")
     private String firstName;
@@ -44,11 +44,11 @@ public class Customer implements Serializable {
             cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Account> accounts;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

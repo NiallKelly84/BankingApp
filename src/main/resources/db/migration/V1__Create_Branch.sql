@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS `Branch` (
 );
 
 CREATE TABLE IF NOT EXISTS `Customer` (
-  `customer_id` INTEGER(10) NOT NULL AUTO_INCREMENT,
+  `customer_id` BIGINT(10) NOT NULL AUTO_INCREMENT,
   `first_Name` VARCHAR(25) NOT NULL,
   `surname` VARCHAR(25) NOT NULL,
   `house_number` VARCHAR(25) NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `Account` (
   `account_type` VARCHAR(25) NOT NULL,
   `interest_rate` DOUBLE NOT NULL,
   `account_balance` DOUBLE NOT NULL,
-  `customer_id` INTEGER(10)   NOT NULL,
+  `customer_id` BIGINT(10)   NOT NULL,
   PRIMARY KEY (`account_id`),
   KEY `FK_ACC_CUST` (`customer_id`),
   CONSTRAINT `FK_ACC_CUST` FOREIGN KEY (`customer_id`) REFERENCES `Customer` (`customer_id`)
