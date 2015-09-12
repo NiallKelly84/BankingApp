@@ -68,21 +68,6 @@ public class CustomerControllerITest {
         assertEquals(customerList.get(0).getFirstName(), "Niall");
         assertEquals(customerList.get(0).getSurName(), "Kelly");
     }
-/*
-    @Test
-    public void getBranchById() throws Exception {
-        MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/api/customer/{customerId}", "5"))
-                .andExpect(status().isOk())
-                .andReturn();
-
-        List<CustomerInfo> customerList = readCustomers(mvcResult);
-
-        // assertions
-        assertEquals(customerList.size(), 5);
-        assertEquals(customerList.get(4).getId(), 5);
-        assertEquals(customerList.get(4).getFirstName(), "Paul");
-        assertEquals(customerList.get(4).getSurName(), "Byrne");
-    }*/
 
     @Test
     public void createCustomer() throws Exception {
