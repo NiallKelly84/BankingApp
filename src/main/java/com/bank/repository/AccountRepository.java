@@ -23,4 +23,5 @@ public interface AccountRepository extends CrudRepository<Account, Long> {
 
     @Query("select a from Account a where a.customer.surName = ?")
     List<Account> findBySurname(String surname);
+    
 }
